@@ -1,4 +1,4 @@
-package junit.tutorial.ex01.e03;
+package junit.tutorial.ex01.e04;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,9 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CounterTest {
-	Counter counter = new Counter();
-
+class NumberUtilsTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
@@ -28,25 +26,14 @@ class CounterTest {
 	}
 
 	@Test
-	void test1() {
-		int answer = counter.increment();
-		assertEquals(1, answer, "0が失敗");
+	void test() {
+		boolean answer = NumberUtils.isEven(10);
+		assertEquals(true, answer, "trueが失敗");
 	}
 
 	@Test
 	void test2() {
-		counter.increment();
-		int answer = counter.increment();
-
-		assertEquals(2, answer, "1が失敗");
-	}
-
-	@Test
-	void test3() {
-		for (int i = 0; i < 50; i++) {
-			counter.increment();
-		}
-		int answer = counter.increment();
-		assertEquals(51, answer, "51が失敗");
+		boolean answer = NumberUtils.isEven(7);
+		assertEquals(false, answer, "falseが失敗");
 	}
 }

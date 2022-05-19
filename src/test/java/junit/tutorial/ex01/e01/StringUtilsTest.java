@@ -29,19 +29,19 @@ class StringUtilsTest {
 	@Test
 	void test() {
 		String test1 = StringUtils.toSnakeCase("aaa");
-		assertEquals("aaa", test1, "Not yet implemented");
+		assertEquals("aaa", test1, "aaaが失敗");
 	}
 
 	@Test
 	void test2() {
 		String test1 = StringUtils.toSnakeCase("HelloWorld");
-		assertEquals("hello_world", test1, "Not yet implemented");
+		assertEquals("hello_world", test1, "hello_worldが失敗");
 	}
 
 	@Test
 	void test3() {
 		String test1 = StringUtils.toSnakeCase("practiceJunit");
-		assertEquals("practice_junit", test1, "Not yet implemented");
+		assertEquals("practice_junit", test1, "practice_junitが失敗");
 	}
 
 }
