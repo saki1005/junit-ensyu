@@ -38,7 +38,6 @@ class EmployeeTest {
 		InputStream employee = getClass().getResourceAsStream(path);
 
 		List<Employee> employeeList = Employee.load(employee);
-		System.out.println(employeeList.size());
 
 		assertAll("employee", () -> assertEquals("Ichiro", employeeList.get(0).getFirstName()),
 				() -> assertEquals("Tanaka", employeeList.get(0).getLastName()),
