@@ -36,7 +36,7 @@ class FizzBuzzTest {
 		List<String> list = new ArrayList<>(Arrays.asList("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz",
 				"Buzz", "11", "Fizz", "13", "14", "FizzBuzz", "16"));
 		List<String> answerList = fizzBuzz.createFizzBuzzList(16);
-		assertIterableEquals(list, answerList);
+		assertIterableEquals(list, answerList, "失敗");
 	}
 
 }
