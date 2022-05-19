@@ -28,7 +28,8 @@ class CalculatorTest {
 
 	@Test
 	void test() {
-		assertThrows(IllegalArgumentException.class, () -> Calculator.divide(1, 0));
+		Calculator calculator = new Calculator();
+		assertThrows(IllegalArgumentException.class, () -> calculator.divide(1, 0));
 	}
 
 }
