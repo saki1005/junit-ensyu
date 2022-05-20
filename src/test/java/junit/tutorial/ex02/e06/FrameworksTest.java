@@ -1,6 +1,7 @@
 package junit.tutorial.ex02.e06;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -33,14 +34,14 @@ class FrameworksTest {
 
 	})
 	void test1(ApplicationServer appServer, Database db, boolean support) {
-		assertEquals(support, Frameworks.isSupport(appServer, db));
+		assertTrue(Frameworks.isSupport(appServer, db));
 	}
 
 	@ParameterizedTest
 	@CsvSource({ "JBoss, Oracle, false", "JBoss, MySQL, false", "Tomcat, Oracle, false", "Tomcat, DB2, false",
 			"Tomcat, PostgreSQL, false" })
 	void test2(ApplicationServer appServer, Database db, boolean support) {
-		assertEquals(support, Frameworks.isSupport(appServer, db));
+		assertFalse(Frameworks.isSupport(appServer, db));
 	}
 
 }
