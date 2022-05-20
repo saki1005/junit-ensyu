@@ -39,7 +39,7 @@ class EmployeeTest {
 
 		List<Employee> employeeList = Employee.load(employee);
 
-		assertAll("employee", () -> assertEquals("Ichiro", employeeList.get(0).getFirstName()),
+		assertAll(() -> assertEquals("Ichiro", employeeList.get(0).getFirstName()),
 				() -> assertEquals("Tanaka", employeeList.get(0).getLastName()),
 				() -> assertEquals("ichiro@example.com", employeeList.get(0).getEmail()));
 	}

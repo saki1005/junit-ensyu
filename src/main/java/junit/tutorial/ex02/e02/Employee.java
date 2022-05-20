@@ -1,6 +1,8 @@
 package junit.tutorial.ex02.e02;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,6 +14,20 @@ public class Employee {
 	private String lastName;
 	private String email;
 	
+	public static void main(String[] args) {
+		try {
+			InputStream employeeText = new FileInputStream(
+					"/Users/saki/Documents/workspace-spring-tool-suite-4-4.14.0.RELEASE/junit-ensyu/src/main/java/junit/tutorial/ex02/e02/Employee.txt");
+			List<Employee> employeeList = load(employeeText);
+			System.out.println(employeeList.get(0).getFirstName());
+			System.out.println(employeeList.get(0).getLastName());
+			System.out.println(employeeList.get(0).getEmail());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public static List<Employee> load(InputStream input) {
 		List<Employee> empList = new ArrayList<>();
 		try(BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {

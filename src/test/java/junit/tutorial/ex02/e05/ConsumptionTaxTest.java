@@ -28,10 +28,10 @@ class ConsumptionTaxTest {
 
 	@ParameterizedTest
 	@CsvSource({ "5, 100, 105", "5, 3000, 3150", "10, 50, 55", "5, 50, 52", "3, 50, 51" })
-	void test(int tax, int price, int totalprice) {
+	void test(int tax, int price, int totalPrice) {
 		ConsumptionTax consumptionTax = new ConsumptionTax(tax);
 		int answer = consumptionTax.apply(price);
-		assertEquals(totalprice, answer, "失敗");
+		assertEquals(totalPrice, answer, "失敗");
 	}
 
 }

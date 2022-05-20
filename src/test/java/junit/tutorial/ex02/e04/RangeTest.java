@@ -1,5 +1,6 @@
 package junit.tutorial.ex02.e04;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
@@ -30,38 +31,27 @@ class RangeTest {
 
 	@ParameterizedTest
 	@DisplayName("min=-0.0,max=10.5で0.0,10.5のときtrue")
-	@ValueSource(doubles = { 0.0, 10.5 })
+	@ValueSource(doubles = { -0.1, 0.0, 10.5, 10.6 })
 	void test1(double value) {
 		Range range = new Range(0.0, 10.5);
 		boolean answer = range.contains(value);
-		assertTrue(answer);
-	}
-
-	@ParameterizedTest
-	@DisplayName("min=-0.0,max=10.5で-0.1,10.6のときfalse")
-	@ValueSource(doubles = { -0.1, 10.6 })
-	void test2(double value) {
-		Range range = new Range(0.0, 10.5);
-		boolean answer = range.contains(value);
-		assertTrue(!answer);
+		if (answer == true) {
+			assertTrue(answer);
+		} else {
+			assertFalse(answer);
+		}
 	}
 
 	@ParameterizedTest
 	@DisplayName("min=-5.1,max=5.1で-5.1,5.1のときtrue")
-	@ValueSource(doubles = { -5.1, 5.1 })
+	@ValueSource(doubles = { -5.2, -5.1, 5.1, 5.2 })
 	void test3(double value) {
 		Range range = new Range(-5.1, 5.1);
 		boolean answer = range.contains(value);
-		assertTrue(answer);
+		if (answer == true) {
+			assertTrue(answer);
+		} else {
+			assertFalse(answer);
+		}
 	}
-
-	@ParameterizedTest
-	@DisplayName("min=-5.1,max=5.1で-5.1,5.1のときfalse")
-	@ValueSource(doubles = { -5.2, 5.2 })
-	void test4(double value) {
-		Range range = new Range(-5.1, 5.1);
-		boolean answer = range.contains(value);
-		assertTrue(!answer);
-	}
-
 }
