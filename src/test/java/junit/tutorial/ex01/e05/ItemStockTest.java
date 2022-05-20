@@ -42,8 +42,16 @@ class ItemStockTest {
 		assertEquals(1, answer, "1が失敗");
 	}
 
+
 	@Test
 	void test3() {
+		itemStock.add(item);
+		int answer = itemStock.getNum(item);
+		assertEquals(1, answer, "1が失敗");
+	}
+
+	@Test
+	void test4() {
 		itemStock.add(item);
 		itemStock.add(item);
 		int answer = itemStock.getNum(item);
@@ -51,7 +59,7 @@ class ItemStockTest {
 	}
 
 	@Test
-	void test4() {
+	void test5() {
 		itemStock.add(item);
 		itemStock.add(item2);
 		int answer = itemStock.getNum(item);
